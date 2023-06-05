@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,5 +36,35 @@ class StudentDBTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+    @Test
+    void test_addStudent() {
+        Student2[] students = new Student2[]{
+                new Student2("Sahed"),
+                new Student2("Canana"),
+                new Student2("Debby"),
+        };
+        StudentDB studentDB = new StudentDB(students);
+        Student2 student = new Student2("Enrico");
+        studentDB.addStudent(student);
+        Student2[] actual = studentDB.getAllStudentsArray();
+        Assertions.assertEquals(actual[actual.length - 1], student);
+    }
+    @Test
+    void test_removeStudent() {
+        Student2[] students = new Student2[]{
+                new Student2("Benjamin"),
+                new Student2("Pia"),
+                new Student2("Gökhan"),
+        };
 
+        StudentDB studentDB = new StudentDB(students);
+
+        Student2 studentToRemove = students[1];
+
+        studentDB.removeStudent(studentToRemove);
+
+        Student2[] updatedStudents = studentDB.getAllStudentsArray();
+
+        Assertions.assertFalse(Arrays.asList(updatedStudents).contains(studentToRemove), "Student should not be in the array after removal");
+    }
 }
