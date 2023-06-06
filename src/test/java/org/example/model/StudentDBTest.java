@@ -39,9 +39,9 @@ class StudentDBTest {
     @Test
     void test_addStudent() {
         Student2[] students = new Student2[]{
-                new Student2("Sahed"),
-                new Student2("Canana"),
-                new Student2("Debby"),
+                new Student2("Benjamin"),
+                new Student2("Pia"),
+                new Student2("Gökhan"),
         };
         StudentDB studentDB = new StudentDB(students);
         Student2 student = new Student2("Enrico");
