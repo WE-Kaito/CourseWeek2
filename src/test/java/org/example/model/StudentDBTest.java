@@ -32,7 +32,7 @@ class StudentDBTest {
         StudentDB studentDB = new StudentDB(student1, student2, student3);
 
         Student2[] expected = {student1, student2, student3};
-        Student2[] actual = studentDB.getAllStudents(student1, student2, student3);
+        Student2[] actual = studentDB.getAllStudents();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -46,7 +46,7 @@ class StudentDBTest {
         StudentDB studentDB = new StudentDB(students);
         Student2 student = new Student2("Enrico");
         studentDB.addStudent(student);
-        Student2[] actual = studentDB.getAllStudentsArray();
+        Student2[] actual = studentDB.getAllStudents();
         Assertions.assertEquals(actual[actual.length - 1], student);
     }
     @Test
@@ -63,7 +63,7 @@ class StudentDBTest {
 
         studentDB.removeStudent(studentToRemove);
 
-        Student2[] updatedStudents = studentDB.getAllStudentsArray();
+        Student2[] updatedStudents = studentDB.getAllStudents();
 
         Assertions.assertFalse(Arrays.asList(updatedStudents).contains(studentToRemove), "Student should not be in the array after removal");
     }
