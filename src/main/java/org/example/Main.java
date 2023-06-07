@@ -30,7 +30,7 @@ public class Main {
         System.out.println(studentDb);
 
         // addStudent Functionality test
-        Student2 student5 = new Student2("Anton");
+        Student2 student5 = new Student2("Alexander");
         studentDb.addStudent(student5);
         System.out.println(studentDb);
 
