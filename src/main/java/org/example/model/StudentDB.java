@@ -57,5 +57,17 @@ public class StudentDB {
             students = newStudents;
         }
     }
+
+    public Student2 findStudentById(String id) throws Exception{
+
+        for (Student2 student : students){
+            if (student.getId().equals(id)){
+                return student;
+            }
+        }
+        throw new Exception("Student not found");
+    }
+
+
 }
 

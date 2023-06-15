@@ -38,6 +38,13 @@ public class Main {
 
         System.out.println(Arrays.toString(studentDb.getAllStudentsArray()));
         // removeStudent
+
+        try {
+            System.out.println(studentDb.findStudentById("6"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
 
